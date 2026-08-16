@@ -4,6 +4,7 @@ Simulate → Policy → Execute → Verify for AI agents on BOT Chain.
 
 **Author:** Ujjwal Dubey ([@ujjwaldubey1](https://github.com/ujjwaldubey1) · [ujjwal07dubey@gmail.com](mailto:ujjwal07dubey@gmail.com))  
 **Repo:** [github.com/ujjwaldubey1/AgentRail](https://github.com/ujjwaldubey1/AgentRail)  
+**Whitepaper / pitch (upload this):** [WHITEPAPER.md](WHITEPAPER.md) — print [WHITEPAPER.html](WHITEPAPER.html) to PDF for the grant form.  
 **Grant application:** [GRANT.md](GRANT.md) (email copy + live explorer links).  
 **Demo (frontend):** `cd web && npm install && npm run dev` — Inter landing + live Simulate / Execute panel.  
 **Static snapshot:** [demo/index.html](demo/index.html) (explorer links only).

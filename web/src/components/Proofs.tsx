@@ -1,4 +1,5 @@
 import { EXPLORER, PROOFS } from "../config";
+import { IconCheck, IconX } from "../icons";
 
 export function Proofs() {
   return (
@@ -16,11 +17,15 @@ export function Proofs() {
             target="_blank"
             rel="noreferrer"
           >
-            <div className={`well ${p.well}`}>{p.meta === "blocked" ? "×" : "✓"}</div>
-            <h3>{p.title}</h3>
-            <div className="meta">
-              ♦ {p.meta} · {p.subtitle}
+            <div className={`stripe ${p.well}`} />
+            <div className={`mark ${p.well}`}>
+              {p.meta === "blocked" ? <IconX size={18} /> : <IconCheck size={18} />}
             </div>
+            <h3>{p.title}</h3>
+            <p className="meta">
+              {p.meta}
+              <span> · {p.subtitle}</span>
+            </p>
           </a>
         ))}
       </div>

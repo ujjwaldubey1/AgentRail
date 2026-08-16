@@ -107,7 +107,7 @@ We are not asking for a token launch. AgentRail is infrastructure: it should inc
 ## How to apply
 
 1. Open the [BOT Chain](https://www.botchain.ai/en) Ecosystem Support Program form, **or**  
-2. Email **ecosystem@BOTChain.info** with the body below. Attach this file.
+2. Email **ecosystem@BOTChain.info** with the body below. Attach **WHITEPAPER.pdf** (print `WHITEPAPER.html` to PDF) or [WHITEPAPER.md](WHITEPAPER.md).
 
 ### Email body (copy)
 

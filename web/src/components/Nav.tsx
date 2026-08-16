@@ -5,25 +5,47 @@ function short(addr?: string) {
   return `${addr.slice(0, 6)}…${addr.slice(-4)}`;
 }
 
-export function Nav() {
+const LINKS = [
+  { href: "#home", label: "Home", id: "home" },
+  { href: "#how", label: "How it works", id: "how" },
+  { href: "#proofs", label: "Proofs", id: "proofs" },
+  { href: "#app", label: "App", id: "app" },
+  { href: "#docs", label: "Docs", id: "docs" },
+] as const;
+
+type NavProps = { page: "home" | "docs"; hash: string };
+
+export function Nav({ page, hash }: NavProps) {
   const { address, isConnected } = useAccount();
   const { connect, connectors, isPending } = useConnect();
   const { disconnect } = useDisconnect();
   const connector = connectors[0];
+  const section = hash.replace("#", "") || "home";
 
   return (
     <header className="wrap nav">
       <a className="brand" href="#home">
-        <span className="logo" />
+        <span className="logo" aria-hidden>
+          <i />
+          <i />
+          <i />
+        </span>
         AgentRail
       </a>
       <nav className="nav-links">
-        <a className="active" href="#home">
-          Home
-        </a>
-        <a href="#how">How it works</a>
-        <a href="#proofs">Proofs</a>
-        <a href="#app">App</a>
+        {LINKS.map((link) => {
+          const active =
+            page === "docs"
+              ? link.id === "docs"
+              : link.id === "docs"
+                ? false
+                : section === link.id || (link.id === "home" && (section === "" || section === "home"));
+          return (
+            <a key={link.id} className={active ? "active" : undefined} href={link.href}>
+              {link.label}
+            </a>
+          );
+        })}
       </nav>
       {isConnected ? (
         <button className="pill" onClick={() => disconnect()}>
