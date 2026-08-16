@@ -1,26 +1,43 @@
-const STAGES = ["Read", "Simulate", "Execute", "Verify"];
+import { ADDRESSES, EXPLORER } from "../config";
+import { IconArrow, IconExternal } from "../icons";
+import { VaultCard } from "./VaultCard";
 
 export function Hero() {
   return (
     <section className="wrap hero" id="home">
-      <p className="eyebrow">BOT Chain · testnet 968</p>
-      <h1>Agents shouldn’t execute blindly</h1>
-      <p>
-        Control plane for autonomous spend. The agent proposes a typed intent. Policy
-        sits on-chain. The treasury never leaves the vault.
-      </p>
-      <ol className="hero-rail" aria-label="Control plane stages">
-        {STAGES.map((stage, i) => (
-          <li key={stage} style={{ animationDelay: `${0.28 + i * 0.07}s` }}>
-            <i className={`dot n${i}`} />
-            <span>{String(i + 1).padStart(2, "0")}</span>
-            {stage}
-          </li>
-        ))}
-      </ol>
-      <a className="pill" href="#app">
-        Open the rail
-      </a>
+      <div className="hero-copy">
+        <p className="live-badge">
+          <i />
+          Live on BOT Chain testnet 968
+        </p>
+        <h1>
+          Agents shouldn’t execute <span>blindly</span>.
+        </h1>
+        <p className="lede">
+          A Simulate → Policy → Execute → Verify control plane for AI agents on BOT Chain. The agent
+          never holds the treasury.
+        </p>
+        <div className="hero-actions">
+          <a className="btn-primary" href="#app">
+            Launch dApp <IconArrow />
+          </a>
+          <a className="btn-ghost" href={`${EXPLORER}/address/${ADDRESSES.vault}`} target="_blank" rel="noreferrer">
+            View on Explorer <IconExternal />
+          </a>
+        </div>
+      </div>
+
+      <div className="hero-art" aria-hidden>
+        <div className="orbit" />
+        <div className="orbit o2" />
+        <div className="cube">
+          <span className="face ft" />
+          <span className="face rt" />
+          <span className="face tp" />
+        </div>
+      </div>
+
+      <VaultCard />
     </section>
   );
 }

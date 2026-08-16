@@ -3,7 +3,7 @@ import { IconCheck, IconX } from "../icons";
 
 export function Proofs() {
   return (
-    <section className="wrap" id="proofs">
+    <section className="wrap proofs" id="proofs">
       <div className="section-head">
         <h2>Live testnet proofs</h2>
         <span className="chip">BOT 968</span>

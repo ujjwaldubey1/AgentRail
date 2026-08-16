@@ -17,7 +17,7 @@ export function Docs() {
       <p className="eyebrow">Documentation</p>
       <h1>How AgentRail works</h1>
       <p className="lede">
-        Read → Simulate → Execute → Verify. Two keys. The agent never holds the treasury.
+        Simulate → Policy → Execute → Verify. Two keys. The agent never holds the treasury.
       </p>
 
       <section>

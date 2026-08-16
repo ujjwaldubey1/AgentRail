@@ -149,14 +149,14 @@ export function AppPanel() {
     <section className="wrap" id="app">
       <div className="app-panel">
         <h2>App</h2>
-        <p style={{ margin: 0, color: "#b0b0b0" }}>
+        <p className="panel-lead">
           Simulate → Execute → Verify on BOT testnet. Policy failures stay on-chain.
         </p>
 
         {wrongChain ? (
           <p className="warn">
             Wrong network.{" "}
-            <button className="pill" disabled={switching} onClick={() => switchChain({ chainId: botTestnet.id })}>
+            <button className="btn-primary" disabled={switching} onClick={() => switchChain({ chainId: botTestnet.id })}>
               Switch to BOT 968
             </button>
           </p>
@@ -189,26 +189,26 @@ export function AppPanel() {
 
         <div className="actions">
           {role === "Owner" ? (
-            <button className="pill" disabled={sending || waiting} onClick={() => void deposit()}>
+            <button className="btn-primary" disabled={sending || waiting} onClick={() => void deposit()}>
               Send 0.2 BOT to vault
             </button>
           ) : null}
           <button
-            className="pill"
+            className="btn-primary"
             disabled={writing || waiting || role !== "Agent"}
             onClick={() => void execute("allow")}
           >
             Allow 0.1
           </button>
           <button
-            className="pill ghost"
+            className="btn-ghost"
             disabled={writing || waiting || role !== "Agent"}
             onClick={() => void execute("cap")}
           >
             Cap drain
           </button>
           <button
-            className="pill ghost"
+            className="btn-ghost"
             disabled={writing || waiting || role !== "Agent"}
             onClick={() => void execute("inject")}
           >

@@ -1,4 +1,5 @@
 import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { IconLogo, IconWallet } from "../icons";
 
 function short(addr?: string) {
   if (!addr) return "";
@@ -25,12 +26,9 @@ export function Nav({ page, hash }: NavProps) {
   return (
     <header className="wrap nav">
       <a className="brand" href="#home">
-        <span className="logo" aria-hidden>
-          <i />
-          <i />
-          <i />
-        </span>
+        <IconLogo />
         AgentRail
+        <span className="chain-tag">BOT Chain</span>
       </a>
       <nav className="nav-links">
         {LINKS.map((link) => {
@@ -48,15 +46,16 @@ export function Nav({ page, hash }: NavProps) {
         })}
       </nav>
       {isConnected ? (
-        <button className="pill" onClick={() => disconnect()}>
+        <button className="btn-primary" onClick={() => disconnect()}>
           {short(address)}
         </button>
       ) : (
         <button
-          className="pill"
+          className="btn-primary"
           disabled={isPending || !connector}
           onClick={() => connector && connect({ connector })}
         >
+          <IconWallet />
           Connect Wallet
         </button>
       )}
