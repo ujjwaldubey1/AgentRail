@@ -17,7 +17,7 @@ export const ADDRESSES = {
   payee: "0x8bf5319Db9cD308D52bA8f4a6c04267FfaA08049" as const,
   owner: "0x184E46634F2E21d88365ffC2bF58a83e315f3c8c" as const,
   agent: "0xb0Bb213DC381287c6A0D0A279ac9Cf423e7A340e" as const,
-  injectTarget: "0xA11CE00000000000000000000000000000000000" as const,
+  injectTarget: "0xA11Ce00000000000000000000000000000000000" as const,
 };
 
 export const EXPLORER = "https://scan.bohr.life";

@@ -10,7 +10,7 @@ import {
   useWaitForTransactionReceipt,
   useWriteContract,
 } from "wagmi";
-import { formatEther, keccak256, parseEther, stringToHex, zeroAddress } from "viem";
+import { formatEther, getAddress, keccak256, parseEther, stringToHex, zeroAddress } from "viem";
 import { agentRailAbi } from "../abi/agentRail";
 import { ADDRESSES, EXPLORER, botTestnet } from "../config";
 
@@ -29,7 +29,7 @@ function decodeReason(value?: `0x${string}`) {
 }
 
 function buildIntent(kind: Kind) {
-  const to = kind === "inject" ? ADDRESSES.injectTarget : ADDRESSES.payee;
+  const to = getAddress(kind === "inject" ? ADDRESSES.injectTarget : ADDRESSES.payee);
   const amount = kind === "cap" ? parseEther("1000") : parseEther("0.1");
   return {
     to,
