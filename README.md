@@ -112,3 +112,21 @@ npm run dev
 Open the Vite URL. Connect Wallet, switch to BOT testnet 968 if asked. Use the **owner** account to send 0.2 BOT into the vault. Use the **agent** account for Allow / Cap drain / Inject.
 
 Config (live testnet): [`web/src/config.ts`](web/src/config.ts).
+
+## Live site (Vercel)
+
+This is a static Vite app. No backend, no env vars, no Next.js. The chain (RPC `https://rpc.bohr.life` + vault in `web/src/config.ts`) is the backend.
+
+The GitHub repo root is Foundry. Vercel must build **`web/`**. [`vercel.json`](vercel.json) at the repo root does that automatically:
+
+- Install: `npm install --prefix web`
+- Build: `npm run build --prefix web`
+- Output: `web/dist`
+
+If an existing Vercel project was pointed at the wrong folder:
+
+1. Project → **Settings → General → Root Directory** → leave empty (repo root) **or** set to `web`
+2. If Root Directory is `web`, Vercel detects Vite by itself; you can ignore the root `vercel.json`
+3. **Deployments → Redeploy** the latest `main` commit
+
+No Vercel environment variables are required. Visitors need MetaMask and BOT testnet 968 to use Connect / Simulate / Execute.
